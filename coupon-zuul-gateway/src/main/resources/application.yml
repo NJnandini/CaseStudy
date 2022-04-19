@@ -1,0 +1,24 @@
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: 'routes,filters'
+server:
+  port: 8100
+zuul:
+  routes:
+    admin-service:
+      url: http://localhost:8083/
+    company-service:
+      url: http://localhost:8081/
+    homepage-service:
+      url:http://localhost:8085/
+    payment-service:
+      url:http://localhost:8089/
+
+spring:
+  application:
+    name: Zuul-gateway
